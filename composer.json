@@ -1,0 +1,31 @@
+{
+    "name": "idbara/bknws",
+    "description": "BKN Web Service Client",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "idbara\\bknws\\": "src/",
+            "Bknws\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bknws\\": [
+                "tests/",
+                "tests/service/"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "idbara",
+            "email": "bararamadhan@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.1"
+    }
+}
