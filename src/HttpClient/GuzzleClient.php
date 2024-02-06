@@ -185,7 +185,7 @@ class GuzzleClient implements ClientInterface
         $options['sink'] = $savePath;
 
         $response = $this->http->request('GET', $url, $options);
-        \Log::info($response->getStatusCode());
+//        \Log::info($response->getStatusCode());
         // Save the response content (PDF) to a file
         $body = $response->getBody()->getContents();
 

@@ -86,25 +86,25 @@ class Bknws
         return json_decode($response->getBody()->getContents(), true);
     }
 
-//    /**
-//     * Get Token SSO
-//     *
-//     * @return string
-//     */
-//    public static function getAccessTokenSSO(): string
-//    {
-//        return self::$tokenSSO['access_token'];
-//    }
-//
-//    /**
-//     * Get Token API
-//     *
-//     * @return string
-//     */
-//    public static function getAccessTokenAPI(): string
-//    {
-//        return self::$tokenAPI['access_token'];
-//    }
+    /**
+     * Get Token SSO
+     *
+     * @return string
+     */
+    public static function getAccessTokenSSO(): string
+    {
+        return self::$tokenSSO['access_token'];
+    }
+
+    /**
+     * Get Token API
+     *
+     * @return string
+     */
+    public static function getAccessTokenAPI(): string
+    {
+        return self::$tokenAPI['access_token'];
+    }
 
     public static function getApiBase():string
     {
