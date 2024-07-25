@@ -6,7 +6,7 @@ use Bknws\ApiOperations\Create;
 use Bknws\ApiOperations\Request;
 use Bknws\ApiOperations\Retrieve;
 use Bknws\Exceptions\ApiException;
-use idbara\bknws\ApiOperations\ResponseHandler;
+use Bknws\ApiOperations\ResponseHandler;
 
 class Document
 {
