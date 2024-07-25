@@ -1,6 +1,6 @@
 <?php
 
-namespace idbara\bknws\ApiOperations;
+namespace Bknws\ApiOperations;
 
 trait ResponseHandler
 {
