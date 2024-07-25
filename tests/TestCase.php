@@ -11,11 +11,11 @@ use GuzzleHttp\Utils;
 class TestCase extends \PHPUnit\Framework\TestCase
 {
     private $bkn;
-    private string $sso_client_id = '';
-    private string $sso_username = '';
-    private string $sso_password = '';
-    private string $consumer_key = '';
-    private string $consumer_secret = '';
+    private string $sso_client_id = 'pmlgkabclient';
+    private string $sso_username = '198110182010011015';
+    private string $sso_password = 'Setyawan2023';
+    private string $consumer_key = '22YbTrFeJ1uC95MZzHzEqjpgMlAa';
+    private string $consumer_secret = 'ZmlLdKUrQaWsg03QAIgg433Q8Ysa';
 
 
     /**

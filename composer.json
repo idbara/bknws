@@ -4,15 +4,13 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "idbara\\bknws\\": "src/",
             "Bknws\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Bknws\\": [
-                "tests/",
-                "tests/service/"
+                "tests/"
             ]
         }
     },

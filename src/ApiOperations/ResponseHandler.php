@@ -6,21 +6,44 @@ trait ResponseHandler
 {
     public static function handle($response): array
     {
-        $getBody = $response->getBody()->getContents();
-        $body = json_decode($getBody, true);
-        $statusCode = $response->getStatusCode();
-        $headers = $response->getHeaders();
-        $getMessages = $response->getReasonPhrase();
-        $messages = [
-            'status_code' => $statusCode,
-            'data' => $getMessages,
-        ];
-
+        $body = $response['body'];
+        $statusCode = $response['statusCode'];
+        $headers = $response['headers'];
         return [
-            'body' => $body ?? $messages,
             'statusCode' => $statusCode,
-            'headers' => $headers,
+            'body' => $body,
         ];
     }
+
+    /**
+     * Handles a successful API response.
+     *
+     * @param array $response The API response as a JSON string.
+     * @return mixed The decoded response data.
+     * @throws \Exception If the response cannot be decoded or processed.
+     */
+    public static function handleSuccess($response): array
+    {
+        $body = $response['body'];
+        $statusCode = $response['statusCode'];
+        $headers = $response['headers'];
+        return $body;
+    }
+
+
+    public static function handleError($response): array
+    {
+        $message = $response->getErrorMessage();
+        $json = explode('response:', $message);
+
+        return [
+            'statusCode' => $response->getErrorCode(),
+            'message' => $message,
+            'body' => $json[1],
+        ];
+
+
+    }
+    
 
 }
