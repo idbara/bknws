@@ -8,16 +8,6 @@ class ApiException extends \Exception implements ExceptionInterface
     protected $errorCode;
 
     /**
-     * Get Error Code for Exception instance
-     *
-     * @return string
-     */
-    public function getErrorCode(): string
-    {
-        return $this->errorCode;
-    }
-
-    /**
      * Create a new instance of ApiException
      *
      * @param string $message
@@ -33,4 +23,26 @@ class ApiException extends \Exception implements ExceptionInterface
         parent::__construct($message, $code);
         $this->errorCode = $errorCode;
     }
+
+    /**
+     * Get the error message
+     *
+     * @return string
+     */
+    public function getErrorMessage(): string
+    {
+        return $this->getMessage();
+    }
+
+    /**
+     * Get the error code
+     *
+     * @return string
+     */
+    public function getErrorCode(): string
+    {
+        return $this->code;
+    }
+
+
 }

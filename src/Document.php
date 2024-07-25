@@ -6,12 +6,14 @@ use Bknws\ApiOperations\Create;
 use Bknws\ApiOperations\Request;
 use Bknws\ApiOperations\Retrieve;
 use Bknws\Exceptions\ApiException;
+use idbara\bknws\ApiOperations\ResponseHandler;
 
 class Document
 {
     use Request;
     use Create;
     use Retrieve;
+    use ResponseHandler;
 
     /**
      * resourceUrl
@@ -42,18 +44,25 @@ class Document
      * @param array $params
      * @return array
      * @throws ApiException
+     * @throws \Exception
      */
     public static function uploadDocument(array $params = []): array
     {
-        $url = static::resourceUrl();
-        $result = static::_requestMultipart('POST', $url, $params);
-        return $result['body'];
+        try{
+            $url = static::resourceUrl();
+            $result = static::_requestMultipart('POST', $url, $params);
+            return self::handleSuccess($result);
+        } catch (ApiException $e) {
+            return self::handleError($e);
+        }
+
     }
 
     /**
      * Get a file Document to API
      *
      * @param string $filePath
+     * @param string $savePath
      * @return array
      */
     public static function downloadDocument(string $filePath, string $savePath=''): array

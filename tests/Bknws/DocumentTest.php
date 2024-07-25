@@ -29,6 +29,25 @@ class DocumentTest extends TestCase
     }
 
     /**
+     * Post Document Test with Oversize File >1Mb
+     * Should pass
+     *
+     * @return void
+     * @throws ApiException
+     */
+    public function testPostDocumentOversize(): void
+    {
+        $params = [
+            'file' => fopen(__DIR__.'/../oversize.pdf', 'r'),
+            'id_ref_dokumen' => $this->idRefDokumen
+        ];
+
+        $data = Document::uploadDocument($params);
+        fwrite(STDERR, print_r($data, true));
+        $this->assertArrayHasKey('statusCode', $data);
+    }
+
+    /**
      * Get Document Test
      * Should pass
      *
